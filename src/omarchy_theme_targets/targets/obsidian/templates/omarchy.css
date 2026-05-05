@@ -1,0 +1,15 @@
+body.theme-dark {{
+  --background-primary: {surface_base};
+  --background-secondary: {surface_panel};
+  --background-modifier-hover: {surface_raised};
+  --text-normal: {text_primary};
+  --text-muted: {text_muted};
+  --interactive-accent: {accent_primary};
+  --interactive-accent-hover: {accent_hover};
+  --text-selection: {selection_bg};
+  --background-modifier-border: {border_subtle};
+  --color-red: {danger};
+  --color-orange: {warning};
+  --color-green: {success};
+  --color-blue: {info};
+}}

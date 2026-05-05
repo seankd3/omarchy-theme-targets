@@ -1,0 +1,22 @@
+[project]
+name = "omarchy-theme-targets"
+version = "0.1.0"
+description = "Safe, reversible app theme targets for Omarchy."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Sean Kenneth Doherty" }]
+dependencies = []
+
+[project.scripts]
+omarchy-theme-targets = "omarchy_theme_targets.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+omarchy_theme_targets = ["targets/*/manifest.toml", "targets/*/templates/*"]

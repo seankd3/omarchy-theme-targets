@@ -1,0 +1,22 @@
+@define-color omarchy_bg {surface_panel};
+@define-color omarchy_panel {surface_raised};
+@define-color omarchy_fg {text_primary};
+@define-color omarchy_muted {text_muted};
+@define-color omarchy_accent {accent_primary};
+@define-color omarchy_border {border_subtle};
+
+/* Chrome only: avoid image, preview, canvas, histogram, and color-managed surfaces. */
+#thumbtable, #left, #right, #header, #plugins, notebook, combobox, entry {{
+  background-color: @omarchy_bg;
+  color: @omarchy_fg;
+}}
+
+button, notebook tab {{
+  background-color: @omarchy_panel;
+  border-color: @omarchy_border;
+  color: @omarchy_fg;
+}}
+
+button:hover, notebook tab:checked {{
+  border-color: @omarchy_accent;
+}}

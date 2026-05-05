@@ -1,0 +1,6 @@
+id = "gtk"
+name = "GTK artifact"
+safety_class = "ui-theme"
+description = "Safe GTK CSS artifact. It is not linked into gtk.css by default."
+output = "{artifact_root}/gtk/gtk.css"
+template = "gtk.css"

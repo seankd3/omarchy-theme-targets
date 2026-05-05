@@ -1,0 +1,22 @@
+@define-color omarchy_surface_base {surface_base};
+@define-color omarchy_surface_panel {surface_panel};
+@define-color omarchy_surface_raised {surface_raised};
+@define-color omarchy_text_primary {text_primary};
+@define-color omarchy_text_muted {text_muted};
+@define-color omarchy_accent {accent_primary};
+@define-color omarchy_border {border_subtle};
+
+window, dialog {{
+  background: @omarchy_surface_base;
+  color: @omarchy_text_primary;
+}}
+
+headerbar, popover, menu, toolbar {{
+  background: @omarchy_surface_panel;
+  color: @omarchy_text_primary;
+  border-color: @omarchy_border;
+}}
+
+button:focus, entry:focus, switch:focus {{
+  outline-color: {focus_ring};
+}}

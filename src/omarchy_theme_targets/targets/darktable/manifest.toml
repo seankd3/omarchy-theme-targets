@@ -1,0 +1,6 @@
+id = "darktable"
+name = "darktable chrome"
+safety_class = "color-critical"
+description = "Chrome-focused CSS artifact for darktable; intentionally preserves neutral image and canvas surfaces."
+output = "{artifact_root}/darktable/omarchy.css"
+template = "omarchy.css"

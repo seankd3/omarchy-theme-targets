@@ -1,0 +1,6 @@
+id = "obsidian"
+name = "Obsidian artifact"
+safety_class = "ui-theme"
+description = "Local Omarchy CSS snippet for Obsidian. The MVP does not rewrite vaults."
+output = "{artifact_root}/obsidian/omarchy.css"
+template = "omarchy.css"

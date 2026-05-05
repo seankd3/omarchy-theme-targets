@@ -1,0 +1,6 @@
+id = "btop"
+name = "btop"
+safety_class = "full-theme"
+description = "Generated btop theme file. Low-risk because btop supports external theme files."
+output = "{home}/.config/btop/themes/omarchy.theme"
+template = "omarchy.theme"
