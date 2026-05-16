@@ -22,6 +22,7 @@ omarchy-theme-targets list
 During development:
 
 ```bash
+python -m pip install -e ".[test]"
 PYTHONPATH=src python -m omarchy_theme_targets.cli palette --colors tests/fixtures/osaka-jade/colors.toml --json
 ```
 

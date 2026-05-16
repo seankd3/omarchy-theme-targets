@@ -8,6 +8,9 @@ license = { text = "MIT" }
 authors = [{ name = "Sean Kenneth Doherty" }]
 dependencies = []
 
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
 [project.scripts]
 omarchy-theme-targets = "omarchy_theme_targets.cli:main"
 

@@ -28,6 +28,8 @@ def classify_path(path: Path) -> str:
 
 
 def can_write_generated(path: Path) -> tuple[bool, str | None]:
+    if path.is_dir():
+        return False, f"output path is a directory: {path}"
     if path.exists() and not has_generated_header(path):
         return False, "refusing to overwrite file without omarchy-theme-targets header"
     parent = path.parent
@@ -47,6 +49,8 @@ def can_write_generated(path: Path) -> tuple[bool, str | None]:
 def write_generated(path: Path, body: str, dry_run: bool = False) -> tuple[str, str]:
     allowed, reason = can_write_generated(path)
     if not allowed:
+        if path.is_dir():
+            return "error", reason or f"output path is a directory: {path}"
         return "manual", reason or "unsafe output"
     if dry_run:
         return "skipped", f"would write {path}"
@@ -61,6 +65,8 @@ def write_generated(path: Path, body: str, dry_run: bool = False) -> tuple[str, 
 def remove_generated(path: Path, dry_run: bool = False) -> tuple[str, str]:
     if not path.exists():
         return "skipped", f"not present: {path}"
+    if path.is_dir():
+        return "error", f"output path is a directory: {path}"
     if not has_generated_header(path):
         return "manual", f"refusing to remove file without omarchy-theme-targets header: {path}"
     if dry_run:

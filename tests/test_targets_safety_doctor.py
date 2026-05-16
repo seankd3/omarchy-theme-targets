@@ -3,7 +3,13 @@ from pathlib import Path
 from omarchy_theme_targets.colors import load_colors
 from omarchy_theme_targets.doctor import run_doctor
 from omarchy_theme_targets.palette import derive_palette
-from omarchy_theme_targets.safety import HEADER_PREFIX, can_write_generated, has_generated_header, write_generated
+from omarchy_theme_targets.safety import (
+    HEADER_PREFIX,
+    can_write_generated,
+    has_generated_header,
+    remove_generated,
+    write_generated,
+)
 from omarchy_theme_targets.targets import load_targets, render_target
 
 
@@ -36,6 +42,23 @@ def test_generated_file_safety(tmp_path):
     allowed, reason = can_write_generated(manual)
     assert not allowed
     assert "refusing to overwrite" in reason
+
+
+def test_directory_output_is_error(tmp_path):
+    output_dir = tmp_path / "theme.css"
+    output_dir.mkdir()
+
+    allowed, reason = can_write_generated(output_dir)
+    assert not allowed
+    assert "output path is a directory" in reason
+
+    status, message = write_generated(output_dir, "body {}\n")
+    assert status == "error"
+    assert "output path is a directory" in message
+
+    status, message = remove_generated(output_dir)
+    assert status == "error"
+    assert "output path is a directory" in message
 
 
 def test_doctor_reports_invalid_colors(tmp_path):
